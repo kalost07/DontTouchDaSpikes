@@ -34,13 +34,13 @@ void Bird::draw()
 	tmp.texture = txt;
 	tmp.drect = pos;
 	tmp.srect = { jumping * 32,0,32,32 };
-	
+	tmp.angle = atan2(velocity.y, velocity.x) * 180 / 3.14;
 
 	if (velocity.x > 0) {
 		tmp.flip = SDL_FLIP_NONE;
 	}
 	else {
-		tmp.flip = SDL_FLIP_HORIZONTAL;
+		tmp.flip = SDL_FLIP_VERTICAL;
 	}
 
 	drawObject(tmp);

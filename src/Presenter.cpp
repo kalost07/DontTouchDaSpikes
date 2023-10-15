@@ -70,5 +70,5 @@ void Presenter::drawObject(SDL_Texture* texture)
 
 void Presenter::drawObject(Drawable& drawable)
 {
-    SDL_RenderCopyEx(m_main_renderer, drawable.texture, &drawable.srect, &drawable.drect,0,NULL, drawable.flip);
+    SDL_RenderCopyEx(m_main_renderer, drawable.texture, &drawable.srect, &drawable.drect,drawable.angle,NULL, drawable.flip);
 }
