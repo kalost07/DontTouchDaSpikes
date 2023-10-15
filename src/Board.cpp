@@ -22,6 +22,10 @@ void Board::update()
 		c_delete();
 		c_genarate();
 	}
+	if (collRectRect( c_rect,  bird.pos)){
+		c_delete();
+		score++;
+	}
 }
 
 void Board::draw()

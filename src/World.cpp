@@ -13,6 +13,13 @@ void World::init()
 {
 	m_presenter.init();
 	board.init();
+	m_inputManager.handleInput();
+	board.update();
+	m_presenter.draw();
+	while (!m_inputManager.anyKeyIsPressed()) {
+	m_inputManager.handleInput();
+
+	}
 }
 
 void World::run()

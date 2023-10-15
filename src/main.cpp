@@ -1,6 +1,7 @@
 #include "World.h" 
 #include <time.h>
 #include <cstdlib>
+#include "InputManager.h"
 
 #undef main
 
@@ -23,6 +24,8 @@ int main(int* argc, char* argv[])
 	srand(time(NULL));
 	world.init();
 	next_time = SDL_GetTicks() + TICK_INTERVAL;
+	world.run();
+	
 	while (world.isRunning())
 	{
 		world.run();

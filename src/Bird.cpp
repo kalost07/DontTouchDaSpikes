@@ -14,7 +14,7 @@ void Bird::init() {
 	txt = loadTexture("double_pile.bmp");
 	cout << txt << endl;
 	jumping = false;
-	pos = { 300,900,BIRD_WIDTH,BIRD_HEIGHT };
+	pos = { 930-BIRD_WIDTH/2,540-BIRD_HEIGHT/2,BIRD_WIDTH,BIRD_HEIGHT };
 	velocity = { 10,0 };
 }
 

@@ -23,6 +23,8 @@ public:
 	void c_delete();
 	void c_draw();
 
+	int score = 0;
+
 private:
 
 };
