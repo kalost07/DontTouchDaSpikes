@@ -19,7 +19,7 @@ public:
 	SDL_Texture* c_text;
 	
 
-	void c_genarate();
+	void c_generate();
 	void c_delete();
 	void c_draw();
 

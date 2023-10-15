@@ -20,7 +20,7 @@ void Board::update()
 	if (bird.pos.x > 1920-bird.BIRD_WIDTH || bird.pos.x < 0) {
 		bird.velocity.x *= -1;
 		c_delete();
-		c_genarate();
+		c_generate();
 	}
 }
 
@@ -36,7 +36,7 @@ void Board::destroy()
 	bird.destroy();
 }
 
-void Board::c_genarate()
+void Board::c_generate()
 {
 	c_text = loadTexture("candy.bmp");
 	cout << c_text;
