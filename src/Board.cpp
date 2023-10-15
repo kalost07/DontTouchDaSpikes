@@ -20,7 +20,7 @@ void Board::update()
 	if (bird.pos.x > 1920-bird.BIRD_WIDTH || bird.pos.x < 0) {
 		bird.velocity.x *= -1;
 		c_delete();
-		c_genarate();
+		c_generate();
 	}
 	if (collRectRect( c_rect,  bird.pos)){
 		c_delete();
@@ -40,7 +40,7 @@ void Board::destroy()
 	bird.destroy();
 }
 
-void Board::c_genarate()
+void Board::c_generate()
 {
 	c_text = loadTexture("candy.bmp");
 	cout << c_text;
@@ -58,6 +58,11 @@ void Board::c_draw() {
 	tmp.texture = c_text;
 	tmp.srect = {0,0,32,32};
 	drawObject(tmp);
+}
+
+void Board::make_spikes()
+{
+
 }
 
 void Board::c_delete()
