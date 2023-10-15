@@ -15,8 +15,11 @@ void Board::init()
 	Spikes spike;
 	spikes.push_back(spike);
 	spikes.push_back(spike);
+	spikes.push_back(spike);
+	spikes.push_back(spike);
 	spikes[0].init(0, 600, 1920, 64, 0);
 	spikes[1].init(0, 0, 1920, 64, 2);
+
 }
 
 void Board::update()
@@ -26,10 +29,19 @@ void Board::update()
 		bird.velocity.x *= -1;
 		c_delete();
 		c_generate();
+		spikes.erase(spikes.begin()+2, spikes.begin()+4);
+		make_spikes(dir);
+		dir = !dir;
 	}
 	if (collRectRect( c_rect,  bird.pos)){
 		c_delete();
 		score++;
+	}
+	// spikes collision with pile
+	for (int i = 0; i < spikes.size(); i++) {
+		if (collRectRect(spikes[i].hitbox, bird.pos)) {
+			cout << "hit\n";
+		}
 	}
 }
 
@@ -51,7 +63,6 @@ void Board::destroy()
 void Board::c_generate()
 {
 	c_text = loadTexture("candy.bmp");
-	cout << c_text;
 	c_rect.x = rand() % 960 + 480;
 	c_rect.y = rand() % 520 + 270;
 	c_rect.w = 128;
@@ -68,9 +79,15 @@ void Board::c_draw() {
 	drawObject(tmp);
 }
 
-void Board::make_spikes()
+void Board::make_spikes(int side)
 {
-
+	int safe = rand() % 10;
+	cout << safe << endl;
+	Spikes tmp;
+	spikes.push_back(tmp);
+	spikes.back().init(side * (1920 - 64), 64, 64, safe * 64, 1+2*side);
+	spikes.push_back(tmp);
+	spikes.back().init(side * (1920 - 64), 256+safe*64, 64, (9-safe)*64, 1+2*side);
 }
 
 void Board::c_delete()

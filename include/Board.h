@@ -26,8 +26,9 @@ public:
 	void c_draw();
 
 	int score = 0;
+	bool dir = 0;
 
-	void make_spikes();
+	void make_spikes(int);
 
 private:
 
