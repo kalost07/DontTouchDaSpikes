@@ -19,6 +19,6 @@ public:
 	SDL_Texture* txt;
 	bool jumping;
 	int cooldown = 0;
-	int temo;
+	
 	void jump();
 };

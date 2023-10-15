@@ -38,6 +38,7 @@ namespace
 	template <typename T>
 	void drawObject(T& t)
 	{
+
 		Presenter::drawObject(t);
 	}
 

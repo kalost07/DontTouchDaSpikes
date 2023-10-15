@@ -15,7 +15,7 @@ void Bird::init() {
 	cout << txt << endl;
 	jumping = false;
 	pos = { 300,900,BIRD_WIDTH,BIRD_HEIGHT };
-	velocity = { 2,0 };
+	velocity = { 5,0 };
 }
 
 void Bird::update() {
@@ -23,7 +23,7 @@ void Bird::update() {
 	pos.x += velocity.x;
 	pos.y += velocity.y;
 	cooldown--;
-	if (cooldown < 20) jumping = false;
+	if (cooldown < 5 ) jumping = false;
 	if (cooldown < 0) cooldown = 0;
 	if (cooldown == 0 && InputManager::m_keyboardState[SDL_SCANCODE_SPACE]) jump();
 }
@@ -34,6 +34,15 @@ void Bird::draw()
 	tmp.texture = txt;
 	tmp.drect = pos;
 	tmp.srect = { jumping * 32,0,32,32 };
+	
+
+	if (velocity.x > 0) {
+		tmp.flip = SDL_FLIP_NONE;
+	}
+	else {
+		tmp.flip = SDL_FLIP_HORIZONTAL;
+	}
+
 	drawObject(tmp);
 }
 
@@ -46,5 +55,5 @@ void Bird::jump()
 {
 	cooldown = 30;
 	jumping = true;
-	velocity.y = -5;
+	velocity.y = -7;
 }
