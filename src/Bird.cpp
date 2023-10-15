@@ -25,7 +25,7 @@ void Bird::update() {
 	cooldown--;
 	if (cooldown < 20) jumping = false;
 	if (cooldown < 0) cooldown = 0;
-	if (cooldown == 0&&InputManager::m_keyboardState[SDL_SCANCODE_SPACE]) jump();
+	if (cooldown == 0 && InputManager::m_keyboardState[SDL_SCANCODE_SPACE]) jump();
 }
 
 void Bird::draw()

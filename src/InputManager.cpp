@@ -1,5 +1,6 @@
 #include "InputManager.h"
 
+const Uint8* InputManager::m_keyboardState;
 
 InputManager::InputManager()
 {
