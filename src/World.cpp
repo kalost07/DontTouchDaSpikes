@@ -12,12 +12,13 @@ World::~World()
 void World::init()
 {
 	m_presenter.init();
+	board.init();
 }
 
 void World::run()
 {
 	m_inputManager.handleInput();
-
+	board.update();
 	m_presenter.draw();
 }
 

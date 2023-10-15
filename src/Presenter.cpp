@@ -58,9 +58,9 @@ void Presenter::update()
 
 void Presenter::draw()
 {
-    SDL_RenderPresent(m_main_renderer);
-
     SDL_RenderClear(m_main_renderer);
+    world.board.draw();
+    SDL_RenderPresent(m_main_renderer);
 }
 
 void Presenter::drawObject(SDL_Texture* texture)
@@ -70,5 +70,6 @@ void Presenter::drawObject(SDL_Texture* texture)
 
 void Presenter::drawObject(Drawable& drawable)
 {
-    SDL_RenderCopy(m_main_renderer, drawable.texture, NULL, &drawable.rect);
+    cout << "try draw\n";
+    SDL_RenderCopy(m_main_renderer, drawable.texture, &drawable.srect, &drawable.drect);
 }

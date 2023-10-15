@@ -46,5 +46,6 @@ enum class SOUND
 struct Drawable
 {
     SDL_Texture* texture = nullptr;
-    SDL_Rect rect = { 0 }; /// The rect where we draw
+    SDL_Rect drect = { 0 }; /// The rect where we draw
+    SDL_Rect srect = { 0 }; /// The part of the sprite we draw
 };
