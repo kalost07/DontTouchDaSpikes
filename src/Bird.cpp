@@ -1,5 +1,6 @@
 #include "Bird.h"
 #include "Presenter.h"
+#include "InputManager.h"
 
 Bird::Bird()
 {
@@ -23,11 +24,8 @@ void Bird::update() {
 	pos.y += velocity.y;
 	cooldown--;
 	if (cooldown < 20) jumping = false;
-	if (cooldown < 0) {
-		cooldown = 0;
-		jumping = false;
-	}
-	if (cooldown == 0) jump();
+	if (cooldown < 0) cooldown = 0;
+	if (cooldown == 0&&InputManager::m_keyboardState[SDL_SCANCODE_SPACE]) jump();
 }
 
 void Bird::draw()

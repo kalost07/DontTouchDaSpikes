@@ -24,11 +24,13 @@ public:
     bool m_mouseIsHolded;
     bool m_mouseIsRightPressed;
 
+    bool keys[322];
+
     int2 m_inputDirection;
 
     int2 m_mouseCoor;
 
-    const Uint8* m_keyboardState;
+    static const Uint8* m_keyboardState;
 
     int m_scroll;
 

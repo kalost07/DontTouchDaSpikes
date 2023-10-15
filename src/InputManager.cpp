@@ -23,6 +23,9 @@ void InputManager::init(string path)
 
     fstream stream;
     string tmp;
+    for (int i = 0; i < 322; i++) {
+        keys[i] = false;
+    }
 }
 
 void InputManager::handleInput()
