@@ -37,7 +37,14 @@ void World::run()
 				//quit
 			}
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_2players_rect)) {
+				
 				game_state = 2;
+				m_inputManager.handleInput();
+				board.update();
+				m_presenter.draw();
+				while (!m_inputManager.anyKeyIsPressed()) {
+					m_inputManager.handleInput();
+				}
 			}
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_1players_rect)) {
 				game_state = 1;

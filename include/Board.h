@@ -28,7 +28,7 @@ public:
 
 	int score = 0;
 	bool dir = 0;
-	bool multiplayer = true;
+	
 
 	void make_spikes(int);
 

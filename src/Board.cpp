@@ -1,5 +1,7 @@
 #include "Board.h"
 #include "Presenter.h"
+#include "World.h"
+extern World world;
 
 Board::Board()
 {
@@ -12,7 +14,7 @@ Board::~Board()
 void Board::init()
 {
 	bird.init(SDL_SCANCODE_SPACE,1);
-	if (multiplayer) bird2.init(SDL_SCANCODE_RETURN, -1); // control with enter
+	if (world.game_state==2) bird2.init(SDL_SCANCODE_RETURN, -1); // control with enter
 	Spikes spike;
 	spikes.push_back(spike);
 	spikes.push_back(spike);
@@ -26,7 +28,7 @@ void Board::init()
 void Board::update()
 {
 	
-	if (multiplayer) {
+	if (world.game_state == 2) {
 		bird.update();
 		if (bird.pos.x > 1920 - bird.BIRD_WIDTH || bird.pos.x < 0) {
 			bird.velocity.x *= -1;
@@ -54,7 +56,7 @@ void Board::update()
 		c_delete();
 		score++;
 	}
-	if (multiplayer) {
+	if (world.game_state == 2) {
 		if (collRectRect(c_rect, bird2.pos)) {
 			c_delete();
 			score++;
@@ -66,7 +68,7 @@ void Board::update()
 			cout << "hit\n";
 		}
 	}
-	if (multiplayer) {
+	if (world.game_state == 2) {
 		for (int i = 0; i < spikes.size(); i++) {
 			if (collRectRect(spikes[i].hitbox, bird2.pos)) {
 				cout << "hit\n";
@@ -78,7 +80,7 @@ void Board::update()
 void Board::draw()
 {
 	bird.draw();
-	if (multiplayer) bird2.draw();
+	if (world.game_state == 2) bird2.draw();
 	c_draw();
 	for (int i = 0; i < spikes.size(); i++) {
 		spikes[i].draw();

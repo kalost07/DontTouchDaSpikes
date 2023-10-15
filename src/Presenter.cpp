@@ -62,7 +62,7 @@ void Presenter::draw()
     if (world.game_state == 0) {
         world.menu.draw_all();
     }
-    if (world.game_state == 1) {
+    else {
         world.menu.draw_background();
         world.board.draw();
     }   
