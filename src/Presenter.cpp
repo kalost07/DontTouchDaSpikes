@@ -59,7 +59,15 @@ void Presenter::update()
 void Presenter::draw()
 {
     SDL_RenderClear(m_main_renderer);
-    world.board.draw();
+    if (world.game_state == 0) {
+        world.menu.draw_all();
+    }
+    if (world.game_state == 1) {
+        world.menu.draw_background();
+        world.board.draw();
+    }   
+    
+    
     SDL_RenderPresent(m_main_renderer);
 }
 

@@ -26,6 +26,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Presenter.cpp" />
     <ClCompile Include="src\Spikes.cpp" />
+    <ClCompile Include="src\start_menu.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +35,7 @@
     <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\InputManager.h" />
     <ClInclude Include="include\Presenter.h" />
+    <ClInclude Include="include\start_menu.h" />
     <ClInclude Include="include\World.h" />
     <ClInclude Include="src\Bird.h" />
     <ClInclude Include="src\Spikes.h" />
