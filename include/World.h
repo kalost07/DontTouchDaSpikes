@@ -22,6 +22,7 @@ public:
 	Menu menu;
 
 	bool isRunning();
+	void quit();
 
 	int game_state = 0;
 private:

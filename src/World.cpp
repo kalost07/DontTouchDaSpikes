@@ -34,7 +34,7 @@ void World::run()
 		
 		if (m_inputManager.m_mouseIsPressed) {
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_quit_rect)) {
-				//quit
+				quit();
 			}
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_2players_rect)) {
 				
@@ -81,4 +81,10 @@ void World::destroy()
 bool World::isRunning()
 {
 	return m_isRunning;
+}
+
+void World::quit()
+{
+	m_isRunning = false;
+	destroy();
 }
