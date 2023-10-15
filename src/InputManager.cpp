@@ -1,4 +1,7 @@
 #include "InputManager.h"
+#include "World.h"
+
+extern World world;
 
 const Uint8* InputManager::m_keyboardState;
 
@@ -39,6 +42,9 @@ void InputManager::handleInput()
     {
         switch (m_event.type)
         {
+        case SDL_QUIT:
+            world.quit();
+
         case SDL_MOUSEMOTION:
             SDL_GetMouseState(&(m_mouseCoor.x), &(m_mouseCoor.y));
 
