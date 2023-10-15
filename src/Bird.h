@@ -5,7 +5,7 @@ public:
 	Bird();
 	~Bird();
 
-	void init();
+	void init(SDL_Scancode,int);
 	void update();
 	void draw();
 	void destroy();
@@ -19,6 +19,7 @@ public:
 	SDL_Texture* txt;
 	bool jumping;
 	int cooldown = 0;
+	SDL_Scancode control;
 	
 	void jump();
 };
