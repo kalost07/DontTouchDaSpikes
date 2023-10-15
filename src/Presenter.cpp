@@ -70,6 +70,5 @@ void Presenter::drawObject(SDL_Texture* texture)
 
 void Presenter::drawObject(Drawable& drawable)
 {
-    cout << "try draw\n";
     SDL_RenderCopyEx(m_main_renderer, drawable.texture, &drawable.srect, &drawable.drect,0,NULL, drawable.flip);
 }

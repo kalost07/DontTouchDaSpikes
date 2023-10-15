@@ -15,7 +15,7 @@ void Bird::init() {
 	cout << txt << endl;
 	jumping = false;
 	pos = { 300,900,BIRD_WIDTH,BIRD_HEIGHT };
-	velocity = { 5,0 };
+	velocity = { 20,0 };
 }
 
 void Bird::update() {
