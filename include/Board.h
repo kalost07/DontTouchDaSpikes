@@ -23,6 +23,8 @@ public:
 	void c_delete();
 	void c_draw();
 
+	void make_spikes();
+
 private:
 
 };

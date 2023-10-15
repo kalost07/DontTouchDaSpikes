@@ -56,6 +56,11 @@ void Board::c_draw() {
 	drawObject(tmp);
 }
 
+void Board::make_spikes()
+{
+
+}
+
 void Board::c_delete()
 {
 	SDL_DestroyTexture(c_text);
