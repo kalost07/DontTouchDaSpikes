@@ -15,11 +15,11 @@ void Bird::init() {
 	cout << txt << endl;
 	jumping = false;
 	pos = { 300,900,BIRD_WIDTH,BIRD_HEIGHT };
-	velocity = { 20,0 };
+	velocity = { 10,0 };
 }
 
 void Bird::update() {
-	velocity.y += GRAVITY / FPS;
+	velocity.y += GRAVITY/FPS;
 	pos.x += velocity.x;
 	pos.y += velocity.y;
 	cooldown--;
@@ -53,7 +53,7 @@ void Bird::destroy()
 
 void Bird::jump()
 {
-	cooldown = 30;
+	cooldown = 20;
 	jumping = true;
-	velocity.y = -7;
+	velocity.y = -15;
 }

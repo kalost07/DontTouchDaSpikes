@@ -22,7 +22,7 @@ static string TITLE_SCREEN_FOLDER = "titleScreen\\";
 static string WIN_SCREEN_FOLDER = "winScreen\\";
 static string GAME_FOLDER = "game\\";
 
-const float GRAVITY = 9.81;
+const float GRAVITY = 32;
 const int FPS = 60;
 
 struct int2
