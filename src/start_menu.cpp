@@ -42,7 +42,7 @@ void Menu::init_background()
 	m_background_rect.y = 0;
 	m_background_rect.w = 1920;
 	m_background_rect.h = 1080;
-	m_background_texture = loadTexture("background.bmp");
+	m_background_texture = loadTexture("backgroun.bmp");
 }
 
 void Menu::init_all()

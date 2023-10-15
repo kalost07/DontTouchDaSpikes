@@ -66,12 +66,13 @@ void Board::update()
 	for (int i = 0; i < spikes.size(); i++) {
 		if (collRectRect(spikes[i].hitbox, bird.pos)) {
 			cout << "hit\n";
+			world.quit();
 		}
 	}
 	if (world.game_state == 2) {
 		for (int i = 0; i < spikes.size(); i++) {
 			if (collRectRect(spikes[i].hitbox, bird2.pos)) {
-				cout << "hit\n";
+				world.quit();
 			}
 		}
 	}
