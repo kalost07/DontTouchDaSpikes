@@ -49,4 +49,5 @@ struct Drawable
     SDL_Rect drect = { 0 }; /// The rect where we draw
     SDL_Rect srect = { 0 }; /// The part of the sprite we draw
     SDL_RendererFlip flip= SDL_FLIP_NONE;
+    int angle = 0;
 };
