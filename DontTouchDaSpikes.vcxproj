@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Bird.cpp" />
     <ClCompile Include="src\Board.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
@@ -33,6 +34,7 @@
     <ClInclude Include="include\InputManager.h" />
     <ClInclude Include="include\Presenter.h" />
     <ClInclude Include="include\World.h" />
+    <ClInclude Include="src\Bird.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
