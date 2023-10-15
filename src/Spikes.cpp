@@ -11,12 +11,18 @@ Spikes::~Spikes()
 
 void Spikes::init(int x,int y,int w,int h,int dirt) {
 	pos = { x,y,w,h };
+	hitbox = pos;
+	hitbox.x -= 2;
+	hitbox.y -= 2;
+	hitbox.w -= 4;
+	hitbox.h -= 4;
 	txt = loadTexture("up_spike.bmp");
 	dir = dirt;
 }
 
 void Spikes::update()
 {
+
 }
 
 void Spikes::draw()

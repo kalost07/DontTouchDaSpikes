@@ -10,12 +10,13 @@ Bird::~Bird()
 {
 }
 
-void Bird::init() {
+void Bird::init(SDL_Scancode ctrl,int dir) {
+	control = ctrl;
 	txt = loadTexture("double_pile.bmp");
 	cout << txt << endl;
 	jumping = false;
 	pos = { 930-BIRD_WIDTH/2,540-BIRD_HEIGHT/2,BIRD_WIDTH,BIRD_HEIGHT };
-	velocity = { 10,0 };
+	velocity = { float(10*dir),0 };
 }
 
 void Bird::update() {
@@ -25,7 +26,7 @@ void Bird::update() {
 	cooldown--;
 	if (cooldown < 5 ) jumping = false;
 	if (cooldown < 0) cooldown = 0;
-	if (cooldown == 0 && InputManager::m_keyboardState[SDL_SCANCODE_SPACE]) jump();
+	if (cooldown == 0 && InputManager::m_keyboardState[control]) jump();
 }
 
 void Bird::draw()

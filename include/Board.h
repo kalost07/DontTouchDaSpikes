@@ -16,6 +16,7 @@ public:
 	void destroy();
 
 	Bird bird;
+	Bird bird2;
 
 	SDL_Rect c_rect;
 	SDL_Texture* c_text;
@@ -26,8 +27,10 @@ public:
 	void c_draw();
 
 	int score = 0;
+	bool dir = 0;
+	bool multiplayer = true;
 
-	void make_spikes();
+	void make_spikes(int);
 
 private:
 
