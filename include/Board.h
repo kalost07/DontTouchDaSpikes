@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Bird.h"
+#include "Spikes.h"
+#include <vector>
 
 class Board 
 {
@@ -17,7 +19,7 @@ public:
 
 	SDL_Rect c_rect;
 	SDL_Texture* c_text;
-	
+	vector<Spikes> spikes;
 
 	void c_generate();
 	void c_delete();

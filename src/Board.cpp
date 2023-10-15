@@ -12,6 +12,11 @@ Board::~Board()
 void Board::init()
 {
 	bird.init();
+	Spikes spike;
+	spikes.push_back(spike);
+	spikes.push_back(spike);
+	spikes[0].init(0, 600, 1920, 64, 0);
+	spikes[1].init(0, 0, 1920, 64, 2);
 }
 
 void Board::update()
@@ -32,6 +37,9 @@ void Board::draw()
 {
 	bird.draw();
 	c_draw();
+	for (int i = 0; i < spikes.size(); i++) {
+		spikes[i].draw();
+	}
 	
 }
 

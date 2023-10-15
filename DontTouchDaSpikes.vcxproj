@@ -25,6 +25,7 @@
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Presenter.cpp" />
+    <ClCompile Include="src\Spikes.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -35,6 +36,7 @@
     <ClInclude Include="include\Presenter.h" />
     <ClInclude Include="include\World.h" />
     <ClInclude Include="src\Bird.h" />
+    <ClInclude Include="src\Spikes.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

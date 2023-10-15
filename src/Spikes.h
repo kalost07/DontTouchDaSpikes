@@ -6,10 +6,15 @@ public:
 	Spikes();
 	~Spikes();
 
-	void init();
+	void init(int, int, int, int, int);
 	void update();
 	void draw();
 	void destroy();
 
 	SDL_Texture* txt;
+	SDL_Rect pos;
+	int dir;
+
+	static const int SPIKE_WIDTH = 64;
+	static const int SPIKE_HEIGHT = 64;
 };
