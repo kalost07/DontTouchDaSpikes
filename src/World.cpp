@@ -12,7 +12,6 @@ World::~World()
 void World::init()
 {
 	m_presenter.init();
-	board.init();
 	menu.init_all();
 
 	game_state = 0;
@@ -39,6 +38,7 @@ void World::run()
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_2players_rect)) {
 				
 				game_state = 2;
+				board.init();
 				m_inputManager.handleInput();
 				board.update();
 				m_presenter.draw();
@@ -49,6 +49,8 @@ void World::run()
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_1players_rect)) {
 				game_state = 1;
 				m_inputManager.handleInput();
+				board.init();
+
 				board.update();
 				m_presenter.draw();
 				while (!m_inputManager.anyKeyIsPressed()) {
@@ -62,7 +64,7 @@ void World::run()
 		board.update();
 	}
 	if (game_state == 2) {
-		//multiplayer
+		board.update();
 
 	}
 	

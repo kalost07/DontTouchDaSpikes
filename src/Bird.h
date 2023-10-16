@@ -14,6 +14,7 @@ public:
 	static const int BIRD_HEIGHT = 128;
 
 	SDL_Rect pos;
+	SDL_Rect hitbox;
 	float2 velocity;
 
 	SDL_Texture* txt;

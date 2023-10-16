@@ -15,14 +15,21 @@ void Bird::init(SDL_Scancode ctrl,int dir) {
 	txt = loadTexture("double_pile.bmp");
 	cout << txt << endl;
 	jumping = false;
-	pos = { 930-BIRD_WIDTH/2,540-BIRD_HEIGHT/2,BIRD_WIDTH,BIRD_HEIGHT };
+	pos = { 930-BIRD_WIDTH/2+dir*64,540-BIRD_HEIGHT/2,BIRD_WIDTH,BIRD_HEIGHT };
 	velocity = { float(10*dir),0 };
+	hitbox = pos;
+	hitbox.x += 7;
+	hitbox.y += 7;
+	hitbox.w -= 14;
+	hitbox.h -= 14;
 }
 
 void Bird::update() {
 	velocity.y += GRAVITY/FPS;
 	pos.x += velocity.x;
+	hitbox.x += velocity.x;
 	pos.y += velocity.y;
+	hitbox.y += velocity.y;
 	cooldown--;
 	if (cooldown < 5 ) jumping = false;
 	if (cooldown < 0) cooldown = 0;
