@@ -24,6 +24,7 @@ static string GAME_FOLDER = "game\\";
 
 const float GRAVITY = 32;
 const int FPS = 60;
+const bool DEBUG = true;
 
 struct int2
 {

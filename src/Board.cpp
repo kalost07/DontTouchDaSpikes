@@ -13,8 +13,8 @@ Board::~Board()
 
 void Board::init()
 {
-	bird.init(SDL_SCANCODE_SPACE,1);
-	if (world.game_state==2) bird2.init(SDL_SCANCODE_RETURN, -1); // control with enter
+	bird.init(SDL_SCANCODE_SPACE,1,0);
+	if (world.game_state==2) bird2.init(SDL_SCANCODE_RETURN, -1,1); // control with enter
 	Spikes spike;
 	spikes.push_back(spike);
 	spikes.push_back(spike);
@@ -22,7 +22,7 @@ void Board::init()
 	spikes.push_back(spike);
 	spikes[0].init(0, 896, 1920, 64, 0);
 	spikes[1].init(0, 0, 1920, 64, 2);
-
+	timer = 0;
 }
 
 void Board::update()
@@ -30,6 +30,7 @@ void Board::update()
 	
 	if (world.game_state == 2) {
 		bird.update();
+		bird2.update();
 		if (bird.pos.x > 1920 - bird.BIRD_WIDTH || bird.pos.x < 0) {
 			bird.velocity.x *= -1;
 			bird2.velocity.x *= -1;
@@ -38,8 +39,8 @@ void Board::update()
 			spikes.erase(spikes.begin() + 2, spikes.end());
 			make_spikes(0);
 			make_spikes(1);
+			timer = 20;
 		}
-		bird2.update();
 	}
 	else {
 		bird.update();
@@ -50,6 +51,7 @@ void Board::update()
 			spikes.erase(spikes.begin() + 2, spikes.begin() + 4);
 			make_spikes(dir);
 			dir = !dir;
+			timer = 20;
 		}
 	}
 	if (collRectRect( c_rect,  bird.pos)){
@@ -64,18 +66,19 @@ void Board::update()
 	}
 	// spikes collision with pile
 	for (int i = 0; i < spikes.size(); i++) {
-		if (collRectRect(spikes[i].hitbox, bird.pos)) {
-			cout << "hit\n";
-			world.quit();
+		if (collRectRect(spikes[i].hitbox, bird.hitbox)&&timer==0) {
+			//world.quit();
 		}
 	}
 	if (world.game_state == 2) {
 		for (int i = 0; i < spikes.size(); i++) {
-			if (collRectRect(spikes[i].hitbox, bird2.pos)) {
-				world.quit();
+			if (collRectRect(spikes[i].hitbox, bird2.hitbox)&&timer==0) {
+				//world.quit();
 			}
 		}
 	}
+	timer--;
+	if (timer < 0) timer = 0;
 }
 
 void Board::draw()
@@ -117,7 +120,6 @@ void Board::c_draw() {
 void Board::make_spikes(int side)
 {
 	int safe = rand() % 10;
-	cout << safe << endl;
 	Spikes tmp;
 	spikes.push_back(tmp);
 	spikes.back().init(side * (1920 - 64), 64, 64, safe * 64, 1+2*side);

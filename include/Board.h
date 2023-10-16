@@ -28,7 +28,7 @@ public:
 
 	int score = 0;
 	bool dir = 0;
-	
+	int timer;
 
 	void make_spikes(int);
 
