@@ -58,6 +58,7 @@ void Presenter::update()
 
 void Presenter::draw()
 {
+    SDL_SetRenderDrawColor(Presenter::m_main_renderer, 0, 0, 0, 1);
     SDL_RenderClear(m_main_renderer);
     if (world.game_state == 0) {
         world.menu.draw_all();

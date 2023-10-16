@@ -7,8 +7,9 @@
 
 World world;
 
+static const int SLOWDOWN = 1;
 static Uint32 next_time;
-static const int TICK_INTERVAL = 1000 / FPS;
+static const int TICK_INTERVAL = 1000 / FPS * SLOWDOWN;
 
 Uint32 time_left()
 {
